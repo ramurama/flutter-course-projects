@@ -4,7 +4,9 @@ import 'package:second_app/answer_button.dart';
 import 'package:second_app/data/questions_data.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen(this.onSelectAnswer, {super.key});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() {
@@ -46,6 +48,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 answerText: item,
                 onTap: () {
                   answerQuestion();
+                  widget.onSelectAnswer(item);
                 },
               ),
             ),

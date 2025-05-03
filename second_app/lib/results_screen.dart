@@ -8,7 +8,7 @@ class ResultsScreen extends StatelessWidget {
 
   const ResultsScreen({super.key, required this.selectedAnswers});
 
-  List<Map<String, Object>> getSummaryData() {
+  List<Map<String, Object>> get summaryData {
     List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < questions.length; i++) {
@@ -25,13 +25,18 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    num correctAnswersCount =
+        summaryData
+            .where((data) => data['correct_answer'] == data['user_answer'])
+            .length;
+
     return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'You have answered\n out of ${questions.length} questions correctly!',
+            'You have answered $correctAnswersCount\n out of ${questions.length} questions correctly!',
             style: GoogleFonts.lato(
               color: const Color.fromARGB(255, 197, 165, 255),
               fontSize: 20,
@@ -40,7 +45,7 @@ class ResultsScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
-          QuestionsSummary(summaryData: getSummaryData()),
+          QuestionsSummary(summaryData: summaryData),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {

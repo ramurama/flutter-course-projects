@@ -17,26 +17,26 @@ const questions = [
     ],
     correctAnswer: 'To manage dependencies',
   ),
-  // QuizQuestionModel(
-  //   question: 'Which widget is used to create a scrollable list in Flutter?',
-  //   options: ['ListView', 'GridView', 'Column', 'Row'],
-  //   correctAnswer: 'ListView',
-  // ),
-  // QuizQuestionModel(
-  //   question: 'What is the purpose of the setState() method in Flutter?',
-  //   options: [
-  //     'To update the UI',
-  //     'To manage state',
-  //     'To handle user input',
-  //     'To navigate between screens',
-  //   ],
-  //   correctAnswer: 'To update the UI',
-  // ),
-  // QuizQuestionModel(
-  //   question: 'Which widget is used to display an image in Flutter?',
-  //   options: ['Image', 'Picture', 'Icon', 'Graphic'],
-  //   correctAnswer: 'Image',
-  // ),
+  QuizQuestionModel(
+    question: 'Which widget is used to create a scrollable list in Flutter?',
+    options: ['ListView', 'GridView', 'Column', 'Row'],
+    correctAnswer: 'ListView',
+  ),
+  QuizQuestionModel(
+    question: 'What is the purpose of the setState() method in Flutter?',
+    options: [
+      'To update the UI',
+      'To manage state',
+      'To handle user input',
+      'To navigate between screens',
+    ],
+    correctAnswer: 'To update the UI',
+  ),
+  QuizQuestionModel(
+    question: 'Which widget is used to display an image in Flutter?',
+    options: ['Image', 'Picture', 'Icon', 'Graphic'],
+    correctAnswer: 'Image',
+  ),
   // QuizQuestionModel(
   //   question: 'What is the main function in a Flutter app?',
   //   options: ['main()', 'runApp()', 'startApp()', 'initApp()'],

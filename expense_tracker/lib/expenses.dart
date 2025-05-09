@@ -1,3 +1,4 @@
+import 'package:expense_tracker/charts/chart.dart';
 import 'package:expense_tracker/components/expenses_list.dart';
 import 'package:expense_tracker/data/expense_data.dart';
 import 'package:expense_tracker/models/expense_model.dart';
@@ -22,6 +23,10 @@ class _ExpensesState extends State<Expenses> {
   void _onAddExpensePressed() {
     showModalBottomSheet(
       context: context,
+      backgroundColor:
+          Theme.of(
+            context,
+          ).bottomSheetTheme.backgroundColor, // Explicitly set background color
       builder: (ctx) => NewExpense(onAddExpense: onAddExpense),
       isScrollControlled: true,
     );
@@ -86,7 +91,10 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text('Chart'), Expanded(child: mainContent)],
+        children: [
+          Chart(expenses: dummyExpenses),
+          Expanded(child: mainContent),
+        ],
       ),
     );
   }

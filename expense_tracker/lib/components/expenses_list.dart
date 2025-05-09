@@ -17,14 +17,25 @@ class ExpensesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: expenses.length,
-      itemBuilder: (context, index) => Dismissible(
-        key: ValueKey(expenses[index].id), // Use a unique key for each item
-        onDismissed: (direction) {
-          // Wait for the Dismissible animation to complete before removing the item
-          Future.delayed(Duration.zero, () => onDeleteExpense(expenses[index]));
-        },
-        child: ExpenseListItem(expenses[index]),
-      ),
+      itemBuilder:
+          (context, index) => Dismissible(
+            key: ValueKey(expenses[index].id), // Use a unique key for each item
+            onDismissed: (direction) {
+              // Wait for the Dismissible animation to complete before removing the item
+              Future.delayed(
+                Duration.zero,
+                () => onDeleteExpense(expenses[index]),
+              );
+            },
+            background: Container(
+              color: Theme.of(context).colorScheme.error,
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              child: const Icon(Icons.delete, color: Colors.white),
+            ),
+            child: ExpenseListItem(expenses[index]),
+          ),
     );
   }
 }

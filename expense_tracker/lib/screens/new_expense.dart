@@ -153,18 +153,27 @@ class _NewExpenseState extends State<NewExpense> {
               Expanded(
                 child: DropdownButton<Category>(
                   isExpanded: true,
-                  items:
-                      Category.values
-                          .map(
-                            (item) => DropdownMenuItem<Category>(
-                              value: item,
-                              child: Text(item.name.toUpperCase()),
+                  items: Category.values
+                      .map(
+                        (item) => DropdownMenuItem<Category>(
+                          value: item,
+                          child: Text(
+                            item.name.toUpperCase(),
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.onSecondaryContainer, // Ensure visibility
                             ),
-                          )
-                          .toList(),
+                          ),
+                        ),
+                      )
+                      .toList(),
                   onChanged: _onCategorySelected,
                   value: _selectedCategory,
-                  hint: const Text('Select Category'),
+                  hint: Text(
+                    'Select Category',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondaryContainer, // Ensure visibility
+                    ),
+                  ),
                 ),
               ),
             ],

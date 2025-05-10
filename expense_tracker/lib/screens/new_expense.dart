@@ -149,53 +149,63 @@ class _NewExpenseState extends State<NewExpense> {
           ),
           const SizedBox(height: 16),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
                 child: DropdownButton<Category>(
                   isExpanded: true,
-                  items: Category.values
-                      .map(
-                        (item) => DropdownMenuItem<Category>(
-                          value: item,
-                          child: Text(
-                            item.name.toUpperCase(),
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSecondaryContainer, // Ensure visibility
+                  items:
+                      Category.values
+                          .map(
+                            (item) => DropdownMenuItem<Category>(
+                              value: item,
+                              child: Text(
+                                item.name.toUpperCase(),
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context)
+                                          .colorScheme
+                                          .onSecondaryContainer, // Ensure visibility
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      )
-                      .toList(),
+                          )
+                          .toList(),
                   onChanged: _onCategorySelected,
                   value: _selectedCategory,
                   hint: Text(
                     'Select Category',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSecondaryContainer, // Ensure visibility
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      // Ensure visibility
+                      fontSize: 11,
                     ),
                   ),
                 ),
               ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('Cancel'),
+              const SizedBox(width: 8),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                child: const Text('Cancel'),
               ),
               const SizedBox(width: 16),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: _onSaveExpense,
-                  child: const Text('Save Expense'),
+              ElevatedButton(
+                onPressed: _onSaveExpense,
+                style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                child: const Text('Save Expense'),
               ),
             ],
           ),

@@ -29,6 +29,7 @@ class _ExpensesState extends State<Expenses> {
           ).bottomSheetTheme.backgroundColor, // Explicitly set background color
       builder: (ctx) => NewExpense(onAddExpense: onAddExpense),
       isScrollControlled: true,
+      useSafeArea: true,
     );
   }
 

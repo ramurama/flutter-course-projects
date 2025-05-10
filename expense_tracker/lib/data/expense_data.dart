@@ -11,6 +11,6 @@ final List<ExpenseModel> dummyExpenses = [
     title: 'Electricity Bill',
     amount: 75.0,
     date: DateTime(2025, 5, 2),
-    category: Category.other,
+    category: Category.work,
   ),
 ];

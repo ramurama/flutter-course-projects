@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/screens/meal_details_screen.dart';
 import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -8,14 +9,16 @@ class MealItem extends StatelessWidget {
 
   const MealItem({super.key, required this.meal});
 
-  void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed('/meals/${meal.id}');
-  }
-
   @override
   Widget build(BuildContext context) {
+    void selectMeal(Meal meal) {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (ctx) => MealDetailsScreen(meal)));
+    }
+
     return InkWell(
-      onTap: () => selectMeal(context),
+      onTap: () => selectMeal(meal),
       borderRadius: BorderRadius.circular(16),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),

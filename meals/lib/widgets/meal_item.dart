@@ -14,7 +14,7 @@ class MealItem extends StatelessWidget {
     void selectMeal(Meal meal) {
       Navigator.of(
         context,
-      ).push(MaterialPageRoute(builder: (ctx) => MealDetailsScreen(meal, on)));
+      ).push(MaterialPageRoute(builder: (ctx) => MealDetailsScreen(meal)));
     }
 
     return InkWell(
